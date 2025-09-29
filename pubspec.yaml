@@ -1,0 +1,50 @@
+name: sikkim_tourism_prototype
+description: A Flutter prototype for Sikkim tourism with OSM map, guide booking, events, and virtual tours.
+publish_to: "none"
+version: 0.1.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  flutter_map: ^6.1.0
+  latlong2: ^0.9.0
+  table_calendar: ^3.0.9
+  intl: ^0.19.0
+  url_launcher: ^6.3.0
+  geolocator: 11.1.0
+  flutter_map_location_marker: ^8.0.6
+  cached_network_image: ^3.4.1
+  google_fonts: ^6.2.1
+
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  flutter_native_splash: ^2.4.1
+  flutter_launcher_icons: ^0.13.1
+
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+flutter_native_splash:
+  color: "#0F2D1E"        # deep green background
+  branding_mode: bottom
+  image: assets/images/logo.png
+  android_12:
+    color: "#0F2D1E"
+    image: assets/images/logo.png
+  web: false
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: assets/images/logo.png
+
