@@ -151,6 +151,12 @@ class _MonasterySheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Find the monastery from the data
+    final monastery = monasteries.firstWhere(
+      (m) => m.name == name,
+      orElse: () => monasteries.first,
+    );
+
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Column(
@@ -161,14 +167,36 @@ class _MonasterySheet extends StatelessWidget {
           const SizedBox(height: 6),
           Text('District: $district'),
           const SizedBox(height: 12),
-          FilledButton(
-            onPressed: () => Navigator.pushNamed(context, '/book', arguments: name),
-            child: const Text('Book a Guide for this Monastery'),
+          SizedBox(
+            width: double.infinity,
+            child: FilledButton.icon(
+              onPressed: () {
+                Navigator.pop(context); // Close bottom sheet
+                Navigator.pushNamed(context, '/monastery', arguments: monastery);
+              },
+              icon: const Icon(Icons.info_outline),
+              label: const Text('View Details'),
+            ),
           ),
           const SizedBox(height: 8),
-          OutlinedButton(
-            onPressed: () => Navigator.pushNamed(context, '/tour', arguments: name),
-            child: const Text('Open Virtual Tour (Placeholder)'),
+          Row(
+            children: [
+              Expanded(
+                child: OutlinedButton.icon(
+                  onPressed: () => Navigator.pushNamed(context, '/book', arguments: name),
+                  icon: const Icon(Icons.person),
+                  label: const Text('Book Guide'),
+                ),
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: OutlinedButton.icon(
+                  onPressed: () => Navigator.pushNamed(context, '/tour', arguments: name),
+                  icon: const Icon(Icons.threesixty),
+                  label: const Text('Virtual Tour'),
+                ),
+              ),
+            ],
           ),
         ],
       ),

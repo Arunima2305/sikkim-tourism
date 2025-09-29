@@ -19,6 +19,8 @@ dependencies:
   flutter_map_location_marker: ^8.0.6
   cached_network_image: ^3.4.1
   google_fonts: ^6.2.1
+  photo_view: ^0.14.0
+  panorama: ^0.4.1
 
 
 

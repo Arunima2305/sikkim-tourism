@@ -4,7 +4,9 @@ import 'pages/guide_booking_page.dart';
 import 'pages/event_calendar_page.dart';
 import 'pages/virtual_tour_page.dart';
 import 'pages/booking_checkout_page.dart';
+import 'pages/monastery_details_page.dart';
 import 'models/booking.dart';
+import 'models/monastery.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'pages/bookings_page.dart';
 
@@ -48,8 +50,10 @@ class SikkimTourismApp extends StatelessWidget {
             final booking = settings.arguments as Booking;
             return MaterialPageRoute(builder: (_) => BookingCheckoutPage(booking: booking));
           case '/mybookings':
-  return MaterialPageRoute(builder: (_) => const MyBookingsPage());
-
+            return MaterialPageRoute(builder: (_) => const MyBookingsPage());
+          case '/monastery':
+            final monastery = settings.arguments as Monastery;
+            return MaterialPageRoute(builder: (_) => MonasteryDetailsPage(monastery: monastery));
         }
         return null;
       },
